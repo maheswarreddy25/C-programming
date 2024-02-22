@@ -1,0 +1,38 @@
+#include <stdio.h>
+
+// Structure definition
+struct Student {
+    char name[50];
+    int rollNumber;
+    float marks[3]; // Assuming marks for three subjects
+};
+
+int main() {
+    // Declare a variable of type Student
+    struct Student student;
+
+    // Input student details
+    printf("Enter student name: ");
+    scanf("%49s", student.name);
+
+    printf("Enter student roll number: ");
+    scanf("%d", &student.rollNumber);
+
+    printf("Enter marks for three subjects:\n");
+    for (int i = 0; i < 3; i++) {
+        printf("Subject %d: ", i + 1);
+        scanf("%f", &student.marks[i]);
+    }
+
+    // Calculate average marks
+    float totalMarks = 0;
+    for (int i = 0; i < 3; i++) {
+        totalMarks += student.marks[i];
+    }
+    float averageMarks = totalMarks / 3;
+
+    // Output average marks
+    printf("\nAverage marks of %s with roll number %d: %.2f\n", student.name, student.rollNumber, averageMarks);
+
+    return 0;
+}
